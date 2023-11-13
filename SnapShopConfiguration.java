@@ -19,6 +19,6 @@ public class SnapShopConfiguration {
         theShop.setDefaultFilename("program_9/billg.jpg");
         theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
         theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
-//        theShop.addFilter(new GaussianBlurFilter(), "Gaussian Blur");
+        theShop.addFilter(new GaussianBlurFilter(), "Gaussian Blur");
     }
 }
