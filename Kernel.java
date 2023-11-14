@@ -71,10 +71,17 @@ public class Kernel {
                 }
             }
         }
-        newPixel.red /= sum;
-        newPixel.green /= sum;
-        newPixel.blue /= sum;
+        newPixel.red = normalize(newPixel.red);
+        newPixel.green = normalize(newPixel.green);
+        newPixel.blue = normalize(newPixel.blue);
         return newPixel;
+    }
+
+    private int normalize(int value) {
+        if (sum == 0) {
+            return Math.clamp(value, 0, 255);
+        }
+        return Math.clamp(value / sum, 0, 255);
     }
 
     /**
@@ -84,15 +91,16 @@ public class Kernel {
      */
     public void applyTo(PixelImage pixelImage) {
         Pixel[][] data = pixelImage.getData();
+        Pixel[][] result = pixelImage.getData(); // deposit result here to prevent overwriting pixels that haven't been convolved yet
         final int imageHeight = pixelImage.getHeight();
         final int imageWidth = pixelImage.getWidth();
         final int offset = Math.max(width, height) / 2; // prevent out of bounds
         for (int row = offset; row < imageHeight - offset; row++) {
             for (int col = offset; col < imageWidth - offset; col++) {
                 Pixel newPixel = convolve(row, col, data);
-                data[row][col] = newPixel;
+                result[row][col] = newPixel;
             }
         }
-        pixelImage.setData(data);
+        pixelImage.setData(result);
     }
 }
