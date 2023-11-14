@@ -19,7 +19,13 @@ public class SnapShopConfiguration {
         theShop.setDefaultFilename("program_9/billg.jpg");
         theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
         theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
+        // TODO: negative filter
         theShop.addFilter(new GaussianBlurFilter(), "Gaussian Blur");
-        theShop.addFilter(new LaplacianFilter(), "Laplacian Filter");
+        theShop.addFilter(new LaplacianFilter(), "Laplacian");
+        theShop.addFilter(new UnsharpenFilter(), "Usharp Masking");
+        theShop.addFilter(new EdgyFilter(), "Edgy");
+//        theShop.addFilter(new EmbossFilter(), "Emboss");
+        // TODO: emboss filter
+        // TODO: B&W filter
     }
 }
