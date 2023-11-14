@@ -3,11 +3,11 @@
  */
 public class GaussianBlurFilter implements Filter {
     public void filter(PixelImage pixelImage) {
-        final int[][] gaussianKernel = {
+        final int[][] matrix = {
                 {1, 2, 1},
                 {2, 4, 2},
                 {1, 2, 1}};
-        Kernel kernel = new Kernel(gaussianKernel);
+        Kernel kernel = new Kernel(matrix);
         kernel.applyTo(pixelImage);
     }
 }
