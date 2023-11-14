@@ -20,5 +20,6 @@ public class SnapShopConfiguration {
         theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
         theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
         theShop.addFilter(new GaussianBlurFilter(), "Gaussian Blur");
+        theShop.addFilter(new LaplacianFilter(), "Laplacian Filter");
     }
 }
