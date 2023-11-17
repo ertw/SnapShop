@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.function.Consumer;
 
 /**
@@ -19,12 +18,6 @@ public class Pixel {
         this.red = red;
         this.green = green;
         this.blue = blue;
-    }
-
-    public Pixel(Color color) {
-        this.red = color.getRed();
-        this.green = color.getGreen();
-        this.blue = color.getBlue();
     }
 
     /**
