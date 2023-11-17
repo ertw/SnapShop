@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.function.Consumer;
 
 /**
  * Represents a pixel, which is a red, green, and blue value
@@ -26,4 +27,12 @@ public class Pixel {
         this.blue = color.getBlue();
     }
 
+    /**
+     * Allows passing in a normalizer function to modify the pixel
+     *
+     * @param consumer A function that takes a Pixel
+     */
+    public void normalize(Consumer<Pixel> consumer) {
+        consumer.accept(this);
+    }
 }
