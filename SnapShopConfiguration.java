@@ -24,8 +24,8 @@ public class SnapShopConfiguration {
         theShop.addFilter(new LaplacianFilter(), "Laplacian");
         theShop.addFilter(new UnsharpenFilter(), "Usharp Masking");
         theShop.addFilter(new EdgyFilter(), "Edgy");
-//        theShop.addFilter(new EmbossFilter(), "Emboss");
-        // TODO: emboss filter
+        theShop.addFilter(new EmbossFilter(), "Emboss");
         theShop.addFilter(new GreyscaleFilter(), "Greyscale");
+        theShop.addFilter(new EdgeDetectFilter(), "Edge Detect");
     }
 }
