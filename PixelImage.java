@@ -94,4 +94,19 @@ public class PixelImage {
         }
     }
 
+    /**
+     * map over the entire image's pixel data
+     *
+     * @param transformer A function that takes a Pixel and transforms it inplace
+     */
+    public void transform(Consumer<Pixel> transformer) {
+        Pixel[][] data = this.getData();
+        for (int row = 0; row < this.height; row++) {
+            for (int col = 0; col < this.width; col++) {
+                Pixel pixel = data[row][col];
+                transformer.accept(pixel);
+            }
+        }
+        this.setData(data);
+    }
 }
