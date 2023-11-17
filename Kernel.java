@@ -19,6 +19,11 @@ public class Kernel {
      * This is used to normalize the resulting pixel.
      */
     private final int sum;
+    /**
+     * The optional bias to apply to the convolution.
+     * If unspecified, no bias is applied.
+     */
+    private int bias = 0;
 
     /**
      * Create a new kernel with the given matrix.
@@ -30,6 +35,17 @@ public class Kernel {
         this.width = matrix.length;
         this.height = matrix[0].length;
         this.sum = calculateSum(matrix);
+    }
+
+    /**
+     * Create a new kernel with the given matrix and bias.
+     *
+     * @param matrix The convolution matrix to apply to the image.
+     * @param bias   The bias to apply to the resulting pixel.
+     */
+    public Kernel(int[][] matrix, int bias) {
+        this(matrix);
+        this.bias = bias;
     }
 
     /**
@@ -71,17 +87,22 @@ public class Kernel {
                 }
             }
         }
-        newPixel.red = normalize(newPixel.red);
-        newPixel.green = normalize(newPixel.green);
-        newPixel.blue = normalize(newPixel.blue);
+        newPixel.normalize((p) -> {
+            p.red = sum == 0 ? clampU8(p.red + bias) : clampU8((p.red + bias) / sum);
+            p.green = sum == 0 ? clampU8(p.green + bias) : clampU8((p.green + bias) / sum);
+            p.blue = sum == 0 ? clampU8(p.blue + bias) : clampU8((p.blue + bias) / sum);
+        });
         return newPixel;
     }
 
-    private int normalize(int value) {
-        if (sum == 0) {
-            return Math.clamp(value, 0, 255);
-        }
-        return Math.clamp(value / sum, 0, 255);
+    /**
+     * Clamp the given value to the range [0, 255].
+     *
+     * @param value The value to clamp.
+     * @return The clamped value.
+     */
+    private int clampU8(int value) {
+        return Math.min(Math.max(value, 0), 255);
     }
 
     /**
