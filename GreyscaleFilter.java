@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * Filter that applies a greyscale filter to an image.
  */
