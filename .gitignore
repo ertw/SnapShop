@@ -1,3 +1,5 @@
 *.jar
 *.jpg
 .DS_Store
+/out
+.idea
