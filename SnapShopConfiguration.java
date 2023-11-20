@@ -27,5 +27,6 @@ public class SnapShopConfiguration {
         theShop.addFilter(new EmbossFilter(), "Emboss");
         theShop.addFilter(new GreyscaleFilter(), "Greyscale");
         theShop.addFilter(new EdgeDetectFilter(), "Edge Detect");
+        theShop.addFilter(new QuantizeFilter(), "Quantize");
     }
 }
