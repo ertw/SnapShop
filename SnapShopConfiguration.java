@@ -1,4 +1,12 @@
-// TODO Write your short report here (-2 if there is no report)
+/**
+ * I had a lot of fun working on this project. After a few refactors, I'm pretty happy with the interfaces I've created.
+ * I tracked my progress in this repo: https://github.com/ertw/SnapShop
+ * Some notes:
+ * - Created a Kernel class to represent and apply a convolution matrix. This allows me to easily create new matrix style filters by defining a matrix.
+ * - Added Pixel.normalize(Consumer<Pixel> consumer) to Pixel.java, which accepts a function that takes a Pixel and potentially modifies it.
+ * - Added PixelImage.transform(Consumer<Pixel> consumer) to PixelImage.java, which allows me to define a function to apply to each pixel in an entire image.
+ * Beyond the basic filters, I also added a quantize filter, which I think looks pretty cool.
+ */
 
 /**
  * A class to configure the SnapShop application
@@ -15,8 +23,8 @@ public class SnapShopConfiguration {
      */
     public static void configure(SnapShop theShop) {
 
-//    theShop.setDefaultFilename("c:/users/cd/desktop/jpegs/billg.jpg");
-        theShop.setDefaultFilename("program_9/billg.jpg");
+//        theShop.setDefaultFilename("program_9/billg.jpg");
+        theShop.setDefaultFilename("c:/users/cd/desktop/jpegs/billg.jpg");
         theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
         theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
         theShop.addFilter(new NegativeFilter(), "Negative");
