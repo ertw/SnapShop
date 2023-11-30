@@ -15,3 +15,12 @@
  that I needed to apply a bias to each pixel transformation. Fortunately, Java's method overloading allowed me to create a Kernel constructor that accepts a bias.
  Because the filters compose, I was able to pass the emboss filter a greyscale filter, which results in a final image that is identical to that produced in common
  image manipulation programs.
+
+Building with Maven:
+
+* Build: `mvn clean compile assembly:single`
+* Run: `java -jar target/SnapShop-1.0-SNAPSHOT-jar-with-dependencies.jar`
+
+Tested with:
+* Maven 3.9.5
+* Java 21
