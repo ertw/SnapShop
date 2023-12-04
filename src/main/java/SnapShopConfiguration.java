@@ -1,4 +1,7 @@
 /**
+ * A class to configure the SnapShop application
+ * @author Erik Williamson
+ * @version 2
  * I had a lot of fun working on this project. After a few refactors, I'm pretty happy with the interfaces I've created.
  * I tracked my progress in this repo: https://github.com/ertw/SnapShop
  * Some notes:
@@ -15,12 +18,6 @@
  * image manipulation programs.
  */
 
-/**
- * A class to configure the SnapShop application
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class SnapShopConfiguration {
     /**
      * Method to configure the SnapShop.  Call methods like addFilter
